@@ -45,3 +45,7 @@ exports.data = function(cb) {
 exports.manage_post = function(post, cb) {
 	cb(0, null);
 };
+
+exports.updatetime = 1000;
+exports.title = 'System Info';
+exports.columns = 6;
