@@ -3,11 +3,11 @@ exports.data = function(cb) {
 	var exec = require('child_process').exec;
 	var res = {};
 
-	exec("date +'%d %b %Y %T %Z'", function(err, stdout, stderr) {
+	exec("date +'%d %b %Y %T %Z'", function(err, stdout) {
 		if (!err) {
 			res.current_time = stdout;
 
-			exec("uname -a", function(err, stdout, stderr) {
+			exec("uname -a", function(err, stdout) {
 				if (!err) {
 					var arr = stdout.split(/\s/);
 
@@ -16,7 +16,7 @@ exports.data = function(cb) {
 					res.kernel = arr[2];
 					res.firmware = arr[3];
 
-					exec("cat /proc/uptime", function(err, stdout, stderr) {
+					exec("cat /proc/uptime", function(err, stdout) {
 						if (!err) {
 							var arr = stdout.split(/\s/);
 
@@ -47,5 +47,5 @@ exports.manage_post = function(post, cb) {
 };
 
 exports.updatetime = 1000;
-exports.title = 'System Info';
-exports.columns = 6;
+exports.title = 'System Informations';
+exports.columns = 4;
